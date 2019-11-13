@@ -1,0 +1,66 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-image: url("../images/content/main.jpg");
+  background-size: contain;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 245px;
+    background: $pink-gradient;
+    transform: skewY(15deg);
+    opacity: 0.5;
+    top: 30%
+  }
+  &__promo {
+    position: relative;
+  }
+  &__name {
+    font-weight: bold;
+  }
+  &__title {
+    font-size: 3rem;
+    font-weight: lighter;
+    margin-right: 5rem;
+  }
+  &__text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: lighter;
+  }
+  &__about {
+    border-top: 1px solid transparentize(white, 0.6);
+    border-bottom: 1px solid transparentize(white, 0.6);
+    padding: 20px 0;
+    position: relative;
+  }
+  &__author {
+    font-weight: bold;
+  }
+  &__date {
+    font-weight: bold;
+  }
+  &__users {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &__likes {
+    background-color: $purple;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0 10px;
+    &__wrap {
+      padding-top: 15px;
+    }
+  }
+}
