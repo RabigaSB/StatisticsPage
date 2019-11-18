@@ -6,6 +6,8 @@
   }
 }
 
+
+
 .navigation {
   @extend .flex--between;
   padding: 20px 15px;
@@ -18,12 +20,16 @@
   }
 }
 
+
+
 .chart {
   &__wrap {
     text-align: center;
     margin: 40px 0;
   }
 }
+
+
 
 .price {
   &__main {
@@ -38,3 +44,41 @@
     font-size: 0.5em;
   }
 }
+
+
+
+%income-outcome-blocks {
+  padding: 10px 20px;
+  border-radius: 5px;
+  flex-basis: 40%;
+  text-align: center;
+}
+.total-price-values {
+  @extend .flex--between;
+  font-size: 2rem ;
+  margin-top: 30px;
+  padding-bottom: 10px;
+  &__income {
+    @extend %income-outcome-blocks;
+    border: 1px solid $blue;
+  }
+  &__outcome {
+    @extend %income-outcome-blocks;
+    border: 1px solid $pink;
+  }
+  &__icon {
+    font-size: 0.5em;
+    padding-left: 0.2em;
+    &--up {
+      @extend .total-price-values__icon;
+      color: $blue;
+    }
+    &--down {
+      @extend .total-price-values__icon;
+      color: $pink;
+    }
+  }
+}
+
+
+
