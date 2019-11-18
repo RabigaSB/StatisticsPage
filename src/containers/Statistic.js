@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import Chart from "../components/Chart";
-import {expenses} from "../helpers/mock";
 import TotalPriceValues from '../Blocks/TotalPriceValues';
 import SectionHeader from '../components/SectionHeader';
 import { faDiceD6 } from '@fortawesome/free-solid-svg-icons';
 import MonthPicker from '../components/MonthPicker';
-import {getValuesSum, roundFloat} from '../helpers/helperFunctions';
+import {getValuesSum, loadExpensesFromLS, roundFloat} from '../helpers/helperFunctions';
 import Expenses from '../Blocks/Expenses';
 
 
 const Statistic = props => {
+    const expenses = loadExpensesFromLS();
+    
     const [currentMonth, setCurrentMonth] = useState('March');
     const [currentExpenses, setCurrentExpenses] = useState(null);
     
@@ -26,6 +27,7 @@ const Statistic = props => {
                 <SectionHeader header='Statistic' icon={faDiceD6}/>
                 
                 <MonthPicker
+                    expenses={expenses}
                     onValueChange={v => setCurrentMonth(v)}
                     value={currentMonth} />
                     

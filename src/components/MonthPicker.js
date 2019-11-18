@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {expenses} from '../helpers/mock';
 
 const MonthPicker = props => {
     
@@ -8,7 +7,7 @@ const MonthPicker = props => {
     const [index, setIndex] = useState(0);
     
     useEffect(() => {
-        Object.keys(expenses).map((month, index) => {
+        Object.keys(props.expenses).map((month, index) => {
             if (month === props.value)
                 setIndex(index);
         });
@@ -22,7 +21,7 @@ const MonthPicker = props => {
         <div
             style={{transform: `translateX(${(2 - index) * 100}px)`}}
             className='month-picker'>
-            {Object.keys(expenses).map((month, index) => {
+            {Object.keys(props.expenses).map((month, index) => {
                 return (
                     <input
                         onClick={e => {

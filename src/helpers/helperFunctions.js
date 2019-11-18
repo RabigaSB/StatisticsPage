@@ -1,4 +1,4 @@
-import {expenses, postsList} from './mock';
+import {postsList} from './mock';
 
 export function getRandomPost() {
     const inx = getRandomInt(postsList.length - 1, 0);
@@ -17,4 +17,18 @@ export function getValuesSum (obj) {
 
 export function roundFloat (num) {
     return Math.round(num * 100) / 100
+}
+
+export function saveExpensesToLS(data) {
+    const string = JSON.stringify(data);
+    localStorage.setItem('expenses', string);
+}
+
+export function removeExpensesFromLS() {
+    localStorage.removeItem('expenses');
+}
+
+export function loadExpensesFromLS() {
+    const string = localStorage.getItem('expenses');
+    return JSON.parse(string);
 }
