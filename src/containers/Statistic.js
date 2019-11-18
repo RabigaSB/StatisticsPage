@@ -3,6 +3,8 @@ import Chart from "../components/Chart";
 import {expenses} from "../helpers/mock";
 import Price from '../components/Price';
 import TotalPriceValues from '../Blocks/TotalPriceValues';
+import SectionHeader from '../components/SectionHeader';
+import { faDiceD6 } from '@fortawesome/free-solid-svg-icons';
 
 const Statistic = props => {
     const [currentMonth, setCurrentMonth] = useState('March');
@@ -17,13 +19,11 @@ const Statistic = props => {
     return (
         <div className='container statistic'>
             <section>
-                Here will be a header
-                <div className='chart__wrap'>
-                    <Chart
-                        sections={expenses[currentMonth]}
-                        returnValue={value => setCurrentExpenses(value)}
-                    />
-                </div>
+                <SectionHeader header='Statistic' icon={faDiceD6}/>
+                <Chart
+                    sections={expenses[currentMonth]}
+                    returnValue={value => setCurrentExpenses(value)}
+                />
                 <div className='text--center'>
                     <Price value={currentExpenses}/>
                 </div>

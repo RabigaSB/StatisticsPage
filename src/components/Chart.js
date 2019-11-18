@@ -14,7 +14,7 @@ const Chart = ({sections}) => {
     let prevDashoffset = 0;
     
     return (
-        <div>
+        <div className='chart__wrap'>
             <svg width="200" height="200" viewBox="0 0 50 50" >
                 <defs>
                     {gradientColorsMap.map(item => (
