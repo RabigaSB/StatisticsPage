@@ -6,15 +6,14 @@ import TotalPriceValues from '../Blocks/TotalPriceValues';
 import SectionHeader from '../components/SectionHeader';
 import { faDiceD6 } from '@fortawesome/free-solid-svg-icons';
 import MonthPicker from '../components/MonthPicker';
+import {getValuesSum, roundFloat} from '../helpers/helperFunctions';
 
 const Statistic = props => {
     const [currentMonth, setCurrentMonth] = useState('March');
     const [currentExpenses, setCurrentExpenses] = useState('100.25');
     
     const income = expenses[currentMonth].income;
-    const outcome = Object.values(expenses[currentMonth].outcome).reduce((sum, expence) => {
-        return sum + expence;
-    }, 0);
+    const outcome = getValuesSum(expenses[currentMonth].outcome);
     
     
     return (
@@ -36,7 +35,7 @@ const Statistic = props => {
             </section>
             <TotalPriceValues
                 income={income}
-                outcome={Math.round(outcome * 100) / 100}
+                outcome={roundFloat(outcome)}
             />
         </div>
     );

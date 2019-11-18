@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
-import {gradientColorsMap} from '../helpers/mock';
+import {expenses, gradientColorsMap} from '../helpers/mock';
+import {getValuesSum, roundFloat} from '../helpers/helperFunctions';
+import Price from './Price';
 
 const Chart = ({sections}) => {
     const r = 15.91549430918954;
@@ -8,6 +10,7 @@ const Chart = ({sections}) => {
     // console.log(sections);
     const total = sections.income;
     const sent = sections.outcome;
+    const sentValue = getValuesSum(sections.outcome);
     const getPercentage = (total, value) => {
       return Math.round((value / total) * 100)  ;
     };
@@ -15,7 +18,7 @@ const Chart = ({sections}) => {
     
     return (
         <div className='chart__wrap'>
-            <svg width="200" height="200" viewBox="0 0 50 50" >
+            <svg width="250" height="250" viewBox="0 0 50 50" >
                 <defs>
                     {gradientColorsMap.map(item => (
                       <linearGradient id={item.key} key={item.key}>
@@ -25,17 +28,11 @@ const Chart = ({sections}) => {
                     ))}
                 </defs>
                 
-               
-                
                 {/*chart ring*/}
-                <circle
-                    r={r}
-                    cx={coordinate}
-                    cy={coordinate}
+                <circle r={r} cx={coordinate} cy={coordinate}
                     fill='transparent'
                     stroke='#171621'
                     strokeWidth={10} />
-    
     
     
                 {sections?
@@ -54,15 +51,20 @@ const Chart = ({sections}) => {
                     })
                     : null
                 }
-                    
-                    
-                    {/*chart hole*/}
-                <circle
-                    r={r}
-                    cx={coordinate}
-                    cy={coordinate}
-                    fill='#1d1e29' />
+                
+                
+                {/*chart hole*/}
+                <circle r={r} cx={coordinate} cy={coordinate} fill='#1d1e29' />
+    
             </svg>
+            <div className='chart__left'>
+                <span className='chart__left__value'>
+                    <Price value={roundFloat(total - sentValue)} />
+                </span>
+                <span className='chart__left__text'>
+                    balance
+                </span>
+            </div>
         </div>
     );
 };
