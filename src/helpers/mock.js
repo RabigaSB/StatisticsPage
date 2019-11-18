@@ -150,3 +150,21 @@ export const navList = [
         icon: faHome,
     },
 ];
+
+export const gradientColorsMap = [
+    {
+        key: 'food_restaurant',
+        firstColor: '#fd3f2f',
+        secondColor: '#face15'
+    },
+    {
+        key: 'shop',
+        firstColor: '#8d4de8',
+        secondColor: '#ff2366'
+    },
+    {
+        key: 'others',
+        firstColor: '#6956ec',
+        secondColor: '#56b2ba'
+    }
+];
