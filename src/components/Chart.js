@@ -47,7 +47,7 @@ const Chart = ({sections}) => {
                           <circle r={r} cx={coordinate} cy={coordinate}
                                   fill='transparent' key={key}
                                   stroke={`url(#${key})`}
-                                  strokeWidth={index%2? 16 : 13}
+                                  strokeWidth={index%2? 14 : 18}
                                   strokeDasharray={`${fillValue} ${100 - fillValue}`}
                                   strokeDashoffset={dashOffset} />
                         )
