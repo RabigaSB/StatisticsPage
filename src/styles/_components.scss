@@ -44,6 +44,9 @@
       color: grey;
     }
   }
+  &__section {
+    cursor: pointer;
+  }
 }
 
 
@@ -143,5 +146,13 @@
     &--active {
       border-bottom-color: $blue;
     }
+  }
+}
+
+.expenses {
+  &__text {
+    color: grey;
+    font-size: 12px;
+    margin-top: 10px;
   }
 }

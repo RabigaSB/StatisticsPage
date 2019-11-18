@@ -1,4 +1,5 @@
-import { faUser, faDiceD6, faBell, faBookmark, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faDiceD6, faBell, faBookmark, faHome,
+    faUtensils, faShoppingCart, faTshirt} from '@fortawesome/free-solid-svg-icons';
 
 export const expenses = {
     January: {
@@ -168,3 +169,15 @@ export const gradientColorsMap = [
         secondColor: '#56b2ba'
     }
 ];
+
+export const chartSectionsMap = {
+    food_restaurant: 'Food and Restaurants',
+    shop: 'Shops',
+    others: 'Other expenses'
+};
+
+export const chartSectionsIconMap = {
+    food_restaurant: faUtensils,
+    shop: faTshirt,
+    others: faShoppingCart
+};

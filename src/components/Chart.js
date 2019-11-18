@@ -1,13 +1,12 @@
-import React, {useEffect} from 'react';
-import {expenses, gradientColorsMap} from '../helpers/mock';
+import React from 'react';
+import {gradientColorsMap} from '../helpers/mock';
 import {getValuesSum, roundFloat} from '../helpers/helperFunctions';
 import Price from './Price';
 
-const Chart = ({sections}) => {
+const Chart = ({sections, returnValue}) => {
     const r = 15.91549430918954;
     const coordinate = 25;
     
-    // console.log(sections);
     const total = sections.income;
     const sent = sections.outcome;
     const sentValue = getValuesSum(sections.outcome);
@@ -41,12 +40,21 @@ const Chart = ({sections}) => {
                         const dashOffset = index > 0? prevDashoffset + fillValue : 0;
                         prevDashoffset = dashOffset;
                         return (
-                          <circle r={r} cx={coordinate} cy={coordinate}
-                                  fill='transparent' key={key}
-                                  stroke={`url(#${key})`}
-                                  strokeWidth={index%2? 14 : 18}
-                                  strokeDasharray={`${fillValue} ${100 - fillValue}`}
-                                  strokeDashoffset={dashOffset} />
+                            <circle r={r} cx={coordinate} cy={coordinate}
+                                fill='transparent' key={key}
+                                stroke={`url(#${key})`}
+                                strokeWidth={index%2? 14 : 18}
+                                strokeDasharray={`${fillValue} ${100 - fillValue}`}
+                                strokeDashoffset={dashOffset}
+                                className='chart__section'
+                                onClick={() => {
+                                    returnValue({
+                                        key,
+                                        value: sent[key]
+                                    })
+                                }}
+                            />
+                            
                         )
                     })
                     : null
