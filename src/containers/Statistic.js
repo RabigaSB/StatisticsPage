@@ -36,7 +36,7 @@ const Statistic = props => {
             </section>
             <TotalPriceValues
                 income={income}
-                outcome={outcome}
+                outcome={Math.round(outcome * 100) / 100}
             />
         </div>
     );
