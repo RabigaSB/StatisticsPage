@@ -24,3 +24,17 @@
     margin: 40px 0;
   }
 }
+
+.price {
+  &__main {
+    position: relative;
+    font-weight: bold;
+    display: inline-block;
+  }
+  &__secondary {
+    position: absolute;
+    top: -0.1em;
+    right: -1em;
+    font-size: 0.5em;
+  }
+}
