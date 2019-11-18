@@ -6,7 +6,7 @@ import {chartSectionsIconMap, chartSectionsMap} from '../helpers/mock';
 const Expenses = ({currentExpenses}) => {
     
     return (
-        <div className='text--center'>
+        <div className='expenses'>
             {currentExpenses?
                 <div>
                     <FontAwesomeIcon icon={chartSectionsIconMap[currentExpenses.key]}/>

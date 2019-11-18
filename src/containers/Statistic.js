@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Chart from "../components/Chart";
 import {expenses} from "../helpers/mock";
 import TotalPriceValues from '../Blocks/TotalPriceValues';
@@ -15,7 +15,10 @@ const Statistic = props => {
     
     const income = expenses[currentMonth].income;
     const outcome = getValuesSum(expenses[currentMonth].outcome);
-    console.log(currentExpenses);
+    
+    useEffect(() => {
+        setCurrentExpenses(null)
+    }, [currentMonth]);
     
     return (
         <div className='container statistic'>

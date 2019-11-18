@@ -46,6 +46,7 @@
   }
   &__section {
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
   }
 }
 
@@ -150,6 +151,7 @@
 }
 
 .expenses {
+  text-align: center;
   &__text {
     color: grey;
     font-size: 12px;
