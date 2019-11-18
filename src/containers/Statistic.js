@@ -5,6 +5,7 @@ import Price from '../components/Price';
 import TotalPriceValues from '../Blocks/TotalPriceValues';
 import SectionHeader from '../components/SectionHeader';
 import { faDiceD6 } from '@fortawesome/free-solid-svg-icons';
+import MonthPicker from '../components/MonthPicker';
 
 const Statistic = props => {
     const [currentMonth, setCurrentMonth] = useState('March');
@@ -20,10 +21,15 @@ const Statistic = props => {
         <div className='container statistic'>
             <section>
                 <SectionHeader header='Statistic' icon={faDiceD6}/>
+                
+                <MonthPicker
+                    onValueChange={v => setCurrentMonth(v)}
+                    value={currentMonth} />
+                    
                 <Chart
                     sections={expenses[currentMonth]}
-                    returnValue={value => setCurrentExpenses(value)}
-                />
+                    returnValue={value => setCurrentExpenses(value)} />
+                    
                 <div className='text--center'>
                     <Price value={currentExpenses}/>
                 </div>

@@ -107,4 +107,24 @@
 }
 
 
-
+.month-picker {
+  display: flex;
+  transition: all 0.2s ease-out;
+  &__month {
+    min-width: 80px;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0;
+    color: white;
+    &:focus {
+      outline: none;
+    }
+    &--active {
+      border-bottom-color: $blue;
+    }
+  }
+}
