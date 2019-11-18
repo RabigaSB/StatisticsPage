@@ -1,6 +1,6 @@
 import { faUser, faDiceD6, faBell, faBookmark, faHome } from '@fortawesome/free-solid-svg-icons';
 
-export const expences = {
+export const expenses = {
     January: {
         income: 1400.99,
         outcome: {
